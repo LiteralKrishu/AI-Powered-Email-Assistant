@@ -30,7 +30,9 @@ This ensures **faster, empathetic, and accurate responses**, reducing manual eff
      │ Email Retrieval Layer │
      │ (IMAP/Gmail API)      │
      └───────────┬───────────┘
-                 │ Raw Emails
+                 │
+             Raw Emails
+                 │
      ┌───────────▼───────────┐
      │ Preprocessing & NLP   │
      │ - Filtering           │
