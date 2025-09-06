@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Settings:
-    PROJECT_NAME: str = "Email Support Automation"
+    PROJECT_NAME: str = "AI-Powered-Email-Assistant"
     PROJECT_VERSION: str = "1.0.0"
     
     POSTGRES_USER: str = os.getenv("POSTGRES_USER")
