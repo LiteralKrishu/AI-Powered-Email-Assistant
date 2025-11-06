@@ -3,13 +3,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from datetime import datetime
 from typing import List
-import models, schemas, crud
-from database import get_db, engine
-from services.email_service import fetch_emails, categorize_email
-from services.nlp_service import analyze_sentiment, extract_entities, detect_urgency
-from services.ai_service import generate_response, search_knowledge_base
-from services.response_service import send_email_response
-from config import settings
+from app import models, schemas, crud
+from app.database import get_db, engine
+from app.services.email_service import fetch_emails, categorize_email
+from app.services.nlp_service import analyze_sentiment, extract_entities, detect_urgency
+from app.services.ai_service import generate_response, search_knowledge_base
+from app.services.response_service import send_email_response
+from app.config import settings
 
 # Create database tables
 models.Base.metadata.create_all(bind=engine)
