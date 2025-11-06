@@ -1,7 +1,7 @@
 import openai
 from typing import List, Dict, Any
 import logging
-from ..config import settings
+from app.config import settings
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

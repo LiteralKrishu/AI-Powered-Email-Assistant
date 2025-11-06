@@ -5,7 +5,7 @@ import re
 from datetime import datetime, timedelta
 from typing import List, Dict
 import logging
-from ..config import settings
+from app.config import settings
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

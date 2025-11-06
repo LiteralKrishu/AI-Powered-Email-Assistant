@@ -5,7 +5,7 @@ import torch.nn.functional as F
 import re
 from typing import Dict, Any
 import logging
-from ..config import settings
+from app.config import settings
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
