@@ -10,3 +10,6 @@ imaplib2
 pydantic
 openai
 email-validator
+httpx
+streamlit
+requests
