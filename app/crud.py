@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import func, desc
-import models, schemas
+from app import models, schemas
 from datetime import datetime, timedelta
 
 def get_email(db: Session, email_id: int):

@@ -25,7 +25,9 @@ def send_email_response(recipient: str, subject: str, body: str, reply_to: str =
         msg.attach(MIMEText(body, 'plain'))
         
         # Send email
-        server = smtplib.SMTP_SSL(settings.EMAIL_SERVER, 465)
+        # Use smtp.gmail.com for Gmail SMTP (EMAIL_SERVER is for IMAP)
+        smtp_server = "smtp.gmail.com" if "gmail" in settings.EMAIL_SERVER else settings.EMAIL_SERVER
+        server = smtplib.SMTP_SSL(smtp_server, 465)
         server.login(settings.EMAIL_USER, settings.EMAIL_PASSWORD)
         text = msg.as_string()
         server.sendmail(settings.EMAIL_USER, recipient, text)

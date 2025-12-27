@@ -1,4 +1,4 @@
-import openai
+from openai import OpenAI
 from typing import List, Dict, Any
 import logging
 from app.config import settings
@@ -6,16 +6,17 @@ from app.config import settings
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Set up OpenAI API
+# Initialize OpenAI client
+client = None
 if settings.OPENAI_API_KEY:
-    openai.api_key = settings.OPENAI_API_KEY
+    client = OpenAI(api_key=settings.OPENAI_API_KEY)
 
 def generate_response(email_subject: str, email_body: str, sentiment: str, 
                      extracted_info: Dict[str, Any], knowledge_context: List[str] = None) -> str:
     """
     Generate AI response for an email
     """
-    if not settings.OPENAI_API_KEY:
+    if not settings.OPENAI_API_KEY or not client:
         return "OpenAI API key not configured. Please set OPENAI_API_KEY environment variable."
     
     try:
@@ -41,7 +42,7 @@ def generate_response(email_subject: str, email_body: str, sentiment: str,
         Keep the response concise but thorough.
         """
         
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "You are a helpful customer support agent."},
